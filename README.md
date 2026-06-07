@@ -30,7 +30,7 @@ If you want to run the node directly and use client without setting up the compi
 
 # Or Download & Build the source
 
-- Building the SCDO project requires both a Go (version 1.12.7 ONLY at this moment) compiler, Git, and a C compiler.
+- Building the SCDO project requires both a Go compiler, Git, and a C compiler. The current source tree is tested with Go 1.12.7 and GOPATH/vendor mode.
 
 - Clone the go-scdo repository to the GOPATH directory:
 
@@ -57,7 +57,7 @@ buildall.bat
 ```
 
 # Run SCDO
-A simple version SCDO mining tutorial: English-[SCDO MiningTutorial](https://scdo-project.gitbook.io/scdo-wiki/en/mining), 中文-[SCDO 挖矿教程中文简版](https://scdo-project.gitbook.io/scdo-wiki/zhong-wen/wa-kuang).
+A simple version SCDO mining tutorial: English-[SCDO MiningTutorial](https://scdo-project.gitbook.io/scdo-wiki/en/mining), Chinese-[SCDO Mining Tutorial](https://scdo-project.gitbook.io/scdo-wiki/zhong-wen/wa-kuang).
 
 For running a node, please refer to [Get Started](https://scdo-project.gitbook.io/scdo-wiki/developer/go-scdo/gettingstarted).
 For more usage details and deeper explanations, please consult the [SCDO Wiki](https://scdo-project.gitbook.io/scdo-wiki/).
