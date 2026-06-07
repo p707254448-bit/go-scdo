@@ -46,7 +46,9 @@ var (
 	// default is full node
 	lightNode bool
 
-	//pprofPort http server port
+	// pprofAddr is the host address for the pprof http server.
+	pprofAddr string
+	// pprofPort is the http server port for pprof.
 	pprofPort uint64
 
 	// profileSize is used to limit when need to collect profiles, set 6GB
@@ -105,7 +107,7 @@ var startCmd = &cobra.Command{
 		// start pprof http server
 		if pprofPort > 0 {
 			go func() {
-				if err := http.ListenAndServe(fmt.Sprintf("0.0.0.0:%d", pprofPort), nil); err != nil {
+				if err := http.ListenAndServe(fmt.Sprintf("%s:%d", pprofAddr, pprofPort), nil); err != nil {
 					fmt.Println("Failed to start pprof http server,", err)
 					return
 				}
@@ -230,7 +232,8 @@ func init() {
 	startCmd.Flags().StringVarP(&poolAccountsConfig, "poolaccounts", "", "", "init pool accounts")
 	startCmd.Flags().IntVarP(&threads, "threads", "", 1, "miner thread value")
 	startCmd.Flags().BoolVarP(&lightNode, "light", "l", false, "whether start with light mode")
-	startCmd.Flags().Uint64VarP(&pprofPort, "port", "", 0, "which port pprof http server listen to")
+	startCmd.Flags().StringVarP(&pprofAddr, "pprofaddr", "", "127.0.0.1", "which address pprof http server listens on")
+	startCmd.Flags().Uint64VarP(&pprofPort, "port", "", 0, "which port pprof http server listens on")
 	startCmd.Flags().IntVarP(&startHeight, "startheight", "", -1, "the block height to start from")
 	startCmd.Flags().IntVarP(&maxConns, "maxConns", "", 0, "node max connections")
 	startCmd.Flags().IntVarP(&maxActiveConns, "maxActiveConns", "", 0, "node max active connections")
