@@ -26,7 +26,7 @@ call :vm
 goto:eof
 
 :copylib
-for /f "delims=" %%i in ('go env GOPAH') do set gopath=%%i
+for /f "delims=" %%i in ('go env GOPATH') do set gopath=%%i
 for /f "delims=" %%i in ('go env GOOS') do set goos=%%i
 for /f "delims=" %%i in ('go env GOARCH') do set goarch=%%i
 md %gopath%\pkg\%goos%_%goarch%\github.com
